@@ -1,14 +1,12 @@
-import Header from './components/header/Header'
-import FetchContainer from './components/fetch-container/FetchContainer'
+import { Header } from './components/header/Header'
+import { PokemonsContainer } from './components/pokemons-container/PokemonsContainer'
 import './App.css'
 
-function App() {
+export const App = (): React.JSX.Element => {
   return (
     <>
       <Header />
-      <FetchContainer />
+      <PokemonsContainer />
     </>
   )
 }
-
-export default App
