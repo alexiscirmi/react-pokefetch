@@ -6,7 +6,7 @@ interface Pokemon {
 
 const FetchContainer: React.FC = () => {
 
-  const [data, setData] = useState<Pokemon[]>([])
+  const [data, setData] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
