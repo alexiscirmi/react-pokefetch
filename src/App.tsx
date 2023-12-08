@@ -5,7 +5,6 @@ import {
 import { Root } from './routes/root'
 import { CardsContainerRoute } from './routes/cards-container-route'
 import { DetailContainerRoute } from './routes/detail-container-route'
-import { ErrorPage } from './ErrorPage'
 import './App.css'
 
 export const App = (): React.JSX.Element => {
@@ -13,7 +12,6 @@ export const App = (): React.JSX.Element => {
     {
       path: '/',
       element: <Root />,
-      errorElement: <ErrorPage />,
       children: [
         {
           path: '/',
