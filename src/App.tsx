@@ -1,5 +1,5 @@
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider
 } from 'react-router-dom'
 import { Root } from './routes/root'
@@ -9,18 +9,18 @@ import { ErrorPage } from './ErrorPage'
 import './App.css'
 
 export const App = (): React.JSX.Element => {
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: '/',
       element: <Root />,
       errorElement: <ErrorPage />,
       children: [
         {
-          path: '/react-pokefetch',
+          path: '/',
           element: <CardsContainerRoute />
         },
         {
-          path: '/react-pokefetch/:num',
+          path: '/:num',
           element: <DetailContainerRoute />
         }
       ]
