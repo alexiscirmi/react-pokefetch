@@ -1,4 +1,4 @@
-interface PokemonInt {
+export interface PokemonInt {
   num: number
   name: string
   url: string
