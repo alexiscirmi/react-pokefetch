@@ -12,7 +12,7 @@ export const Card = ({ data }: any): React.JSX.Element => {
 
       {/* Image */}
       <div className='border-yellow-500 border-solid border-4 mx-6 h-52 flex justify-center'>
-        <img src={data.sprites.other.dream_world.front_default} alt={data.name} className='h-full'/>
+        <img src={data.sprites.other.dream_world.front_default} alt={data.name} className='h-full p-2' />
       </div>
     </div>
   )
