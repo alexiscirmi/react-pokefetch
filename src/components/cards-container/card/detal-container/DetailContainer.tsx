@@ -8,18 +8,20 @@ export const DetailContainer = (): React.JSX.Element => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const fetchInfo = async (): Promise<void> => {
-      if (Number(num) < 152 && Number(num) > 0) {
+    if (Number(num) < 152 && Number(num) > 0) {
+      const fetchInfo = async (): Promise<void> => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${num}`)
         const data = await res.json()
         setData(data)
         setLoading(false)
-      } else {
-        setLoading(false)
       }
+
+      void fetchInfo()
+    } else {
+      setData(null)
+      setLoading(false)
     }
-    void fetchInfo()
-  }, [])
+  }, [num])
 
   return (
     <main className='flex justify-center h-full items-center'>
