@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Card } from './card/Card'
+import { Selector } from './selector/Selector'
 import { type PokemonInt } from '../../types'
 
-export const CardsContainer = (): React.JSX.Element => {
+export const SelectorsContainer = (): React.JSX.Element => {
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const CardsContainer = (): React.JSX.Element => {
     <main className='flex flex-wrap capitalize justify-around w-full h-full items-center my-4'>
       {
         data.map((pokemon: PokemonInt, index: number) => (
-          <Card key={pokemon.name} name={pokemon.name} url={pokemon.url} num={index + 1} />
+          <Selector key={pokemon.name} name={pokemon.name} url={pokemon.url} num={index + 1} />
         ))
       }
     </main>

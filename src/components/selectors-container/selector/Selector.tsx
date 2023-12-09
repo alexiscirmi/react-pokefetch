@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { type PokemonInt } from '../../../types'
-import styles from './Card.module.css'
+import styles from './Selector.module.css'
 
-export const Card = ({ name, url, num }: PokemonInt): React.JSX.Element => {
+export const Selector = ({ name, url, num }: PokemonInt): React.JSX.Element => {
   const [sprite, setSprite] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 

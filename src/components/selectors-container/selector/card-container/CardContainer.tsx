@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { type PokemonInt } from '../../../../types'
+import { Card } from './card/Card'
 
-export const DetailContainer = (): React.JSX.Element => {
+export const CardContainer = (): React.JSX.Element => {
   const { num } = useParams()
   const [data, setData] = useState<PokemonInt | null>(null)
   const [loading, setLoading] = useState(true)
@@ -34,8 +35,14 @@ export const DetailContainer = (): React.JSX.Element => {
           )
         : (
             data !== null
-              ? (<div>hello {data.name}</div>)
-              : (<div>Please, choose a Pokémon from <Link to={'/'} className='text-red-600'>this list</Link></div>)
+              ? (
+                  <Card data={data}/>
+                )
+              : (
+                  <div>
+                    Please, choose a Pokémon from <Link to={'/'} className='text-red-600'>this list</Link>
+                  </div>
+                )
           )
         }
     </main>

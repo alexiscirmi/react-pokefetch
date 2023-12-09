@@ -3,8 +3,8 @@ import {
   RouterProvider
 } from 'react-router-dom'
 import { Root } from './routes/root'
-import { CardsContainerRoute } from './routes/cards-container-route'
-import { DetailContainerRoute } from './routes/detail-container-route'
+import { SelectorsContainerRoute } from './routes/selectors-container-route'
+import { CardContainerRoute } from './routes/card-container-route'
 import './App.css'
 
 export const App = (): React.JSX.Element => {
@@ -15,11 +15,11 @@ export const App = (): React.JSX.Element => {
       children: [
         {
           path: '/',
-          element: <CardsContainerRoute />
+          element: <SelectorsContainerRoute />
         },
         {
           path: '/:num',
-          element: <DetailContainerRoute />
+          element: <CardContainerRoute />
         }
       ]
     }
