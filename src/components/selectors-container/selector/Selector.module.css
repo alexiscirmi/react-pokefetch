@@ -1,14 +1,14 @@
 .imageContainer {
-display: flex;
-align-items: center;
-justify-content: center;
-width: 96px;
-height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
 }
 
 .placeholder {
-width: 50%;
-height: 50%;
-background-color: grey;
-border-radius: 100%;
+  width: 50%;
+  height: 50%;
+  background-color: grey;
+  border-radius: 100%;
 }

@@ -1,5 +1,8 @@
 .header {
   height: 13vh;
+}
+
+.title {
   font-family: 'PocketMonk';
   color: #FFCD05;
   text-shadow: -3px 0 #004BE5, 0 3px #004BE5, 3px 0 #004BE5, 0 -3px #004BE5;

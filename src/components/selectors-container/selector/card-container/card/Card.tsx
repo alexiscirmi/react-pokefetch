@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './Card.module.css'
 
-export const Card = ({ data }: any): React.JSX.Element => {
+export const Card = ({ data }: any) => {
 
   const [isSpriteLoaded, setIsSpriteLoaded] = useState(false)
 
@@ -43,16 +43,16 @@ export const Card = ({ data }: any): React.JSX.Element => {
   }
 
   return (
-    <div className={`border-yellow-400 border-solid rounded-3xl my-1 ${styles.card}`}>
+    <div className={`border-yellow-300 border-solid rounded-3xl my-1 ${styles.card}`} style={{ backgroundColor: typeCheck() }}>
 
       {/* Header */}
       <div className={`flex text-xl justify-between mt-6 mx-6 ${styles.header}`}>
-        <span className='capitalize font-bold'>{data.name}</span>
-        <span className='text-red-600'>{data.stats[0].base_stat} HP</span>
+        <span className='capitalize font-semibold'>{data.name}</span>
+        <span className='text-red-600 font-medium'>{data.stats[0].base_stat} HP</span>
       </div>
 
       {/* Sprite */}
-      <div className={`border-yellow-500 border-solid border-4 mx-6 h-52 flex justify-center items-center`} style={{ backgroundColor: typeCheck() }}>
+      <div className='border-yellow-400 border-solid border-4 mx-6 h-52 flex justify-center items-center backdrop-grayscale backdrop-opacity-50'>
         {!isSpriteLoaded && <div className={`animate-pulse ${styles.placeholder}`} />}
         <img
           src={data.sprites.other.dream_world.front_default}
@@ -61,6 +61,11 @@ export const Card = ({ data }: any): React.JSX.Element => {
           onLoad={handleSpriteLoad}
           style={{ display: isSpriteLoaded ? 'block' : 'none' }}
         />
+      </div>
+
+      {/* Description */}
+      <div className='bg-yellow-500 h-5 my-1 text-center mx-11 rounded capitalize text-sm'>
+        {(data.types[0].type.name)} Pokémon. {data.height * 10}cm. {(data.weight / 10).toLocaleString()}kg.
       </div>
 
     </div>
