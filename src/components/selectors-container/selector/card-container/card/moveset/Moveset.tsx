@@ -15,8 +15,9 @@ export const Moveset = ({ moves }: DataInterface) => {
   }, [])
 
   return (
-    <div className='h-15 justify-between mx-6 capitalize'>
-      {(moves[0].move.name)}
+    <div className='flex h-15 justify-between items-center mx-6 capitalize'>
+      <span className='text-lg'>{(moves[0].move.name).replace('-', ' ')}</span>
+      <span className='text-2xl'>{moveset}</span>
     </div>
   )
 }
