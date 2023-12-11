@@ -12,31 +12,33 @@ export const Card = ({ data }: any) => {
   const typeCheck = () => {
     switch (data.types[0].type.name) {
       case 'grass':
-        return 'greenyellow'
-      case 'fire':
-        return 'orangered'
-      case 'water':
-        return 'skyblue'
-      case 'bug':
-        return 'greenyellow'
-      case 'normal':
-        return 'oldlace'
+        return '#58D68D'
       case 'poison':
-        return 'greenyellow'
-      case 'electric':
-        return 'yellow'
-      case 'ground':
-        return 'goldenrod'
-      case 'fighting':
-        return 'goldenrod'
-      case 'psychic':
-        return 'purple'
-      case 'rock':
-        return 'goldenrod'
+        return '#58D68D'
+      case 'bug':
+        return '#58D68D'
+      case 'fire':
+        return '#EC7063'
+      case 'water':
+        return '#85C1E9'
       case 'ice':
-        return 'skyblue'
+        return '#85C1E9'
+      case 'normal':
+        return '#EAEDED'
       case 'dragon':
-        return 'oldlace'
+        return '#EAEDED'
+      case 'electric':
+        return '#F9E79F'
+      case 'ground':
+        return '#DC7633'
+      case 'rock':
+        return '#DC7633'
+      case 'fighting':
+        return '#DC7633'
+      case 'psychic':
+        return '#A569BD'
+      case 'ghost':
+        return '#A569BD'
       default:
         break;
     }
@@ -65,7 +67,7 @@ export const Card = ({ data }: any) => {
 
       {/* Description */}
       <div className='bg-yellow-500 h-5 my-1 text-center mx-11 rounded capitalize text-sm'>
-        {(data.types[0].type.name)} Pokémon. {data.height * 10}cm. {(data.weight / 10).toLocaleString()}kg.
+        {(data.types[0].type.name)} Pokémon / {data.height * 10}cm. / {(data.weight / 10).toLocaleString()}kg.
       </div>
 
     </div>
