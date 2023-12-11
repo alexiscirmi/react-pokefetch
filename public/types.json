@@ -1,0 +1,74 @@
+{
+  "types": [
+    {
+      "type": "grass",
+      "color": "#58D68D",
+      "weakness": "Poison"
+    },
+    {
+      "type": "poison",
+      "color": "#58D68D",
+      "weakness": "Ground"
+    },
+    {
+      "type": "bug",
+      "color": "#58D68D",
+      "weakness": "Rock"
+    },
+    {
+      "type": "fire",
+      "color": "#EC7063",
+      "weakness": "Water"
+    },
+    {
+      "type": "water",
+      "color": "#85C1E9",
+      "weakness": "Electric"
+    },
+    {
+      "type": "ice",
+      "color": "#85C1E9",
+      "weakness": "Fire"
+    },
+    {
+      "type": "normal",
+      "color": "#EAEDED",
+      "weakness": "Fighting"
+    },
+    {
+      "type": "dragon",
+      "color": "#EAEDED",
+      "weakness": "Dragon"
+    },
+    {
+      "type": "electric",
+      "color": "#F9E79F",
+      "weakness": "Ground"
+    },
+    {
+      "type": "ground",
+      "color": "#E67E22",
+      "weakness": "Ice"
+    },
+    {
+      "type": "rock",
+      "color": "#E67E22",
+      "weakness": "Grass"
+    },
+    {
+      "type": "fighting",
+      "color": "#E67E22",
+      "weakness": "Psychic"
+    },
+    {
+      "type": "psychic",
+      "color": "#AF7AC5",
+      "weakness": "Bug"
+    },
+    {
+      "type": "ghost",
+      "color": "#AF7AC5",
+      "weakness": "Ghost"
+    }
+  ]
+}
