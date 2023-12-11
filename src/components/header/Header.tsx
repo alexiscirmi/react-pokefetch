@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import '../../assets/fonts/fonts.css'
 import styles from './Header.module.css'
 
-export const Header = (): React.JSX.Element => {
+export const Header = () => {
   return (
     <>
       <header className={`flex justify-center relative border border-solid bg-red-600 ${styles.header}`}>

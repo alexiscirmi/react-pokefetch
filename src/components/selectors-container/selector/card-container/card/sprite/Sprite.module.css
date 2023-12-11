@@ -1,0 +1,6 @@
+.placeholder {
+  width: 128px;
+  height: 128px;
+  background-color: grey;
+  border-radius: 100%;
+}

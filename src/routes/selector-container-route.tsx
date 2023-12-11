@@ -1,6 +1,6 @@
 import { SelectorsContainer } from '../components/selectors-container/SelectorsContainer'
 
-export const CardsContainerRoute = (): React.JSX.Element => {
+export const CardsContainerRoute = () => {
   return (
     <SelectorsContainer />
   )

@@ -7,7 +7,7 @@ import { SelectorsContainerRoute } from './routes/selectors-container-route'
 import { CardContainerRoute } from './routes/card-container-route'
 import './App.css'
 
-export const App = (): React.JSX.Element => {
+export const App = () => {
   const router = createHashRouter([
     {
       path: '/',
