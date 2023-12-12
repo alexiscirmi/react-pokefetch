@@ -1,5 +1,6 @@
 .header {
   height: 13vh;
+  max-height: 90px;
 }
 
 .title {
