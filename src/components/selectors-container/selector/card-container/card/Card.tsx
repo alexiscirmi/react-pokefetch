@@ -25,8 +25,8 @@ export const Card = ({ types, stats, name, height, weight, sprites, moves }: Dat
 
       {/* Header */}
       <div className={`flex text-xl justify-between mt-6 mx-6 ${styles.header}`}>
-        <span className='capitalize font-semibold'>{name}</span>
-        <span className='text-red-600 font-medium'>{stats[0].base_stat} HP</span>
+        <h2 className='capitalize font-semibold'>{name}</h2>
+        <span className='text-red-600 font-medium'>{stats[0].base_stat * 3} HP</span>
       </div>
 
       {/* Sprite */}
@@ -57,7 +57,7 @@ export const Card = ({ types, stats, name, height, weight, sprites, moves }: Dat
       />
 
       {/* Weakness */}
-      <div className='text-xs'>
+      <div className='text-xs mx-6 flex justify-center'>
         Weakness: {pokemonType && pokemonType.weakness}
       </div>
 
