@@ -25,14 +25,14 @@ export const Moveset = ({ moves }: DataInterface) => {
   return (
     <div className='flex flex-col h-15 mx-6 my-3'>
       <div className='flex justify-between'>
-        <div className='mb-1'>
+        <div className='pb-1 border-b-2 border-black'>
           <h3 className='text-lg capitalize'>{(moves[0].move.name).replace('-', ' ')}</h3>
           <p className='text-xs me-2 text-justify'>{movesetEffect[0]}</p>
         </div>
         <span className='text-2xl'>{movesetPower[0]}</span>
       </div>
       <div className='flex justify-between'>
-        <div className='mt-1'>
+        <div className='pt-1'>
           <h3 className='text-lg capitalize'>{(moves[1].move.name).replace('-', ' ')}</h3>
           <p className='text-xs me-2 text-justify'>{movesetEffect[1]}</p>
         </div>
