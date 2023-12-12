@@ -21,7 +21,7 @@ export const Card = ({ types, stats, name, height, weight, sprites, moves }: Dat
   }, [])
 
   return (
-    <div className={`border-yellow-300 border-solid rounded-3xl my-1 ${styles.card}`} style={pokemonType && { backgroundColor: pokemonType.color }}>
+    <div className={`border-yellow-300 border-solid relative rounded-3xl my-1 ${styles.card}`} style={pokemonType && { backgroundColor: pokemonType.color }}>
 
       {/* Header */}
       <div className={`flex text-xl justify-between mt-6 mx-6 ${styles.header}`}>
@@ -58,7 +58,9 @@ export const Card = ({ types, stats, name, height, weight, sprites, moves }: Dat
 
       {/* Weakness */}
       <div className='text-xs mx-6 flex justify-center'>
-        Weakness: {pokemonType && pokemonType.weakness}
+        <div className='absolute bottom-1'>
+          Weakness: {pokemonType && pokemonType.weakness}
+        </div>
       </div>
 
     </div>
