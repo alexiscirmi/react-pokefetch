@@ -28,7 +28,9 @@ export const Moveset = ({ moves }: DataInterface) => {
         <div>
           <h3 className='text-lg capitalize'>{(moves[0].move.name).replace('-', ' ')}</h3>
           {(movesetEffect[0].length + movesetEffect[1].length) > 180
-            ? <p className='me-2 text-justify' style={{ fontSize: '9px' }}>{movesetEffect[0]}</p>
+            ? movesetEffect[0].length > 250
+              ? <p className='me-1 sm:me-2 text-justify' style={{ fontSize: '9px' }}>{movesetEffect[0].slice(0, 250) + '...'}</p>
+              : <p className='me-1 sm:me-2 text-justify' style={{ fontSize: '9px' }}>{movesetEffect[0]}</p>
             : <p className='text-xs me-2 text-justify'>{movesetEffect[0]}</p>
           }
           {/* <p className='text-xs me-2 text-justify'>
@@ -44,7 +46,9 @@ export const Moveset = ({ moves }: DataInterface) => {
         <div>
           <h3 className='text-lg capitalize'>{(moves[1].move.name).replace('-', ' ')}</h3>
           {(movesetEffect[0].length + movesetEffect[1].length) > 180
-            ? <p className='me-2 text-justify' style={{ fontSize: '9px' }}>{movesetEffect[1]}</p>
+            ? movesetEffect[1].length > 300
+              ? <p className='me-1 sm:me-2 text-justify' style={{ fontSize: '9px' }}>{movesetEffect[1].slice(0, 300) + '...'}</p>
+              : <p className='me-1 sm:me-2 text-justify' style={{ fontSize: '9px' }}>{movesetEffect[1]}</p>
             : <p className='text-xs me-2 text-justify'>{movesetEffect[1]}</p>
           }
         </div>

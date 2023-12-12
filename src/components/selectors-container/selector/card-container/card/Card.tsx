@@ -41,7 +41,7 @@ export const Card = ({ types, stats, name, height, weight, sprites, moves }: Dat
       />
 
       {/* Description */}
-      <div className='bg-yellow-500 h-5 my-1 text-center mx-11 rounded capitalize text-sm'>
+      <div className='bg-yellow-500 h-5 my-1 text-center mx-6 sm:mx-11 rounded capitalize text-xs sm:text-sm'>
         {(types[0].type.name)} Pokémon / {height * 10}cm. / {(weight / 10).toLocaleString()}kg.
       </div>
 
