@@ -3,7 +3,7 @@ import { DataInterface } from '../../../../../../types'
 
 export const Moveset = ({ moves }: DataInterface) => {
   const [movesetPower, setMovesetPower] = useState([0, 0])
-  const [movesetEffect, setMovesetEffect] = useState([null, null])
+  const [movesetEffect, setMovesetEffect] = useState(['', ''])
 
   useEffect(() => {
     const fetchMoveset = async () => {
@@ -24,17 +24,29 @@ export const Moveset = ({ moves }: DataInterface) => {
 
   return (
     <div className='flex flex-col h-15 mx-6 my-3'>
-      <div className='flex justify-between'>
-        <div className='pb-1 border-b-2 border-black'>
+      <div className='flex justify-between pb-1 border-b-2 border-black'>
+        <div>
           <h3 className='text-lg capitalize'>{(moves[0].move.name).replace('-', ' ')}</h3>
-          <p className='text-xs me-2 text-justify'>{movesetEffect[0]}</p>
+          {(movesetEffect[0].length + movesetEffect[1].length) > 180
+            ? <p className='me-2 text-justify' style={{ fontSize: '9px' }}>{movesetEffect[0]}</p>
+            : <p className='text-xs me-2 text-justify'>{movesetEffect[0]}</p>
+          }
+          {/* <p className='text-xs me-2 text-justify'>
+            {movesetEffect[0].length > 120
+              ? movesetEffect[0].slice(0, 120) + '...'
+              : movesetEffect[0]
+            }
+          </p> */}
         </div>
         <span className='text-2xl'>{movesetPower[0]}</span>
       </div>
-      <div className='flex justify-between'>
-        <div className='pt-1'>
+      <div className='flex justify-between pt-1'>
+        <div>
           <h3 className='text-lg capitalize'>{(moves[1].move.name).replace('-', ' ')}</h3>
-          <p className='text-xs me-2 text-justify'>{movesetEffect[1]}</p>
+          {(movesetEffect[0].length + movesetEffect[1].length) > 180
+            ? <p className='me-2 text-justify' style={{ fontSize: '9px' }}>{movesetEffect[1]}</p>
+            : <p className='text-xs me-2 text-justify'>{movesetEffect[1]}</p>
+          }
         </div>
         <span className='text-2xl'>
           {movesetPower[1] !== null

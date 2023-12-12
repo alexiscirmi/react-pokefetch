@@ -58,7 +58,7 @@ export const Card = ({ types, stats, name, height, weight, sprites, moves }: Dat
 
       {/* Weakness */}
       <div className='text-xs mx-6 flex justify-center'>
-        <div className='absolute bottom-1'>
+        <div className='absolute bottom-2'>
           Weakness: {pokemonType && pokemonType.weakness}
         </div>
       </div>
