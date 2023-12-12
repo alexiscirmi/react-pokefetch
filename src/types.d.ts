@@ -38,6 +38,12 @@ export interface DataInterface {
         name: string
         url: string
       }
+    },
+    {
+      move: {
+        name: string
+        url: string
+      }
     }
   ]
 }
