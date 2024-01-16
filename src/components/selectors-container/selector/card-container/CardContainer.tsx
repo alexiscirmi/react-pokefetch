@@ -3,14 +3,14 @@ import { Link, useParams } from 'react-router-dom'
 import { type DataInterface } from '../../../../types'
 import { Card } from './card/Card'
 
-export const CardContainer = () => {
+export const CardContainer: React.FC = () => {
   const { num } = useParams()
   const [data, setData] = useState<DataInterface | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (Number(num) < 152 && Number(num) > 0) {
-      const fetchInfo = async () => {
+      const fetchInfo = async (): Promise<void> => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${num}`)
         const data: DataInterface | null = await res.json()
         setData(data)

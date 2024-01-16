@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom'
 import { type ListInterface } from '../../../types'
 import styles from './Selector.module.css'
 
-export const Selector = ({ name, url, num }: ListInterface) => {
-  const [sprite, setSprite] = useState()
+export const Selector: React.FC<ListInterface> = ({ name, url, num }) => {
+  const [sprite, setSprite] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const fetchSprite = async () => {
+    const fetchSprite = async (): Promise<void> => {
       const res = await fetch(url)
       const data = await res.json()
-      const sprite = data.sprites.front_default
+      const sprite: string = data.sprites.front_default
       setSprite(sprite)
       setLoading(false)
     }

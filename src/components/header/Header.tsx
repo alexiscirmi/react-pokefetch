@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import '../../assets/fonts/fonts.css'
 import styles from './Header.module.css'
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <>
       <header

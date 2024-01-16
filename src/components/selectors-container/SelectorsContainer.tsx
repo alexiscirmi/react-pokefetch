@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import { Selector } from './selector/Selector'
 import { type ListInterface } from '../../types'
 
-export const SelectorsContainer = () => {
+export const SelectorsContainer: React.FC = () => {
   const [data, setData] = useState<ListInterface[]>([])
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (): Promise<void> => {
       const res = await fetch(
         'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151'
       )
