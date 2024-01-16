@@ -1,28 +1,33 @@
 import { useEffect, useState } from 'react'
 import { Selector } from './selector/Selector'
-import { ListInterface } from '../../types'
+import { type ListInterface } from '../../types'
 
 export const SelectorsContainer = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState<ListInterface[]>([])
 
   useEffect(() => {
-    const fetchData = async (): Promise<void> => {
-      const res = await fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151')
+    const fetchData = async () => {
+      const res = await fetch(
+        'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151'
+      )
       const data = await res.json()
-      const results = await data.results
+      const results: ListInterface[] = await data.results
       setData(results)
     }
 
-    fetchData()
+    void fetchData()
   }, [])
 
   return (
     <main className='flex flex-wrap capitalize justify-around w-full h-full items-center my-4'>
-      {
-        data.map((pokemon: ListInterface, index: number) => (
-          <Selector key={pokemon.name} name={pokemon.name} url={pokemon.url} num={index + 1} />
-        ))
-      }
+      {data.map((pokemon: ListInterface, index: number) => (
+        <Selector
+          key={pokemon.name}
+          name={pokemon.name}
+          url={pokemon.url}
+          num={index + 1}
+        />
+      ))}
     </main>
   )
 }

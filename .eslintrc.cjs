@@ -3,18 +3,13 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: [
-    'standard-with-typescript',
-    'plugin:react/recommended'
-  ],
+  extends: ['standard-with-typescript', 'plugin:react/recommended'],
   overrides: [
     {
       env: {
         node: true
       },
-      files: [
-        '.eslintrc.{js,cjs}'
-      ],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
         sourceType: 'script'
       }
@@ -24,11 +19,11 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: [
-    'react'
-  ],
+  plugins: ['react'],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'multiline-ternary': 'off'
   }
 }
