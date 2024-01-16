@@ -4,7 +4,7 @@ export interface ListInterface {
   url: string
 }
 
-export interface TypesInterface {
+export interface TypeInterface {
   color: string
   weakness: string
 }
