@@ -4,11 +4,6 @@ export interface ListInterface {
   url: string
 }
 
-export interface TypeInterface {
-  color: string
-  weakness: string
-}
-
 export interface DataInterface {
   types: [
     {
@@ -32,6 +27,37 @@ export interface DataInterface {
       }
     }
   }
+  moves: [
+    {
+      move: {
+        name: string
+        url: string
+      }
+    },
+    {
+      move: {
+        name: string
+        url: string
+      }
+    }
+  ]
+  pokemonType: object
+  color: string
+  weakness: string
+}
+
+export interface SpriteInt {
+  sprites: {
+    other: {
+      dream_world: {
+        front_default: string
+      }
+    }
+  }
+  name: string
+}
+
+export interface MoveInt {
   moves: [
     {
       move: {

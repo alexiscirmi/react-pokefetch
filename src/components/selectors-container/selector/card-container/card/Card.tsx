@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
 import { Sprite } from './sprite/Sprite'
 import { Moveset } from './moveset/Moveset'
-import { type TypeInterface, type DataInterface } from '../../../../../types'
+import { type DataInterface } from '../../../../../types'
 import styles from './Card.module.css'
 
 export const Card: React.FC<DataInterface> = ({
@@ -11,35 +10,16 @@ export const Card: React.FC<DataInterface> = ({
   height,
   weight,
   sprites,
-  moves
+  moves,
+  pokemonType
 }) => {
-  const [pokemonType, setPokemonType] = useState<TypeInterface | null>(null)
-
-  useEffect(() => {
-    const typeCheck = async (): Promise<void> => {
-      try {
-        const res = await fetch('types.json')
-        const typesData = await res.json()
-        const typesArray = await typesData.types
-        const typeCard = types[0].type.name
-        const typeData: TypeInterface = await typesArray.find(
-          (typeObject: { key: string }) =>
-            Object.keys(typeObject)[0] === typeCard
-        )
-        setPokemonType(typeData)
-      } catch (error) {
-        setPokemonType(null)
-      }
-    }
-
-    void typeCheck()
-  }, [])
-
-  if (pokemonType != null) {
+  if (pokemonType !== undefined) {
     return (
       <div
         className={`border-yellow-300 border-solid relative rounded-3xl my-1 ${styles.card}`}
-        style={{ backgroundColor: Object.values(pokemonType)[0].color }}
+        style={{
+          backgroundColor: Object.values(pokemonType)[0].color
+        }}
       >
         {/* Header */}
         <div
@@ -52,15 +32,7 @@ export const Card: React.FC<DataInterface> = ({
         </div>
 
         {/* Sprite */}
-        <Sprite
-          sprites={sprites}
-          name={name}
-          types={types}
-          stats={stats}
-          height={height}
-          weight={weight}
-          moves={moves}
-        />
+        <Sprite sprites={sprites} name={name} />
 
         {/* Description */}
         <div className='bg-yellow-500 h-5 my-1 text-center mx-6 sm:mx-11 rounded capitalize text-xs sm:text-sm'>
@@ -69,20 +41,12 @@ export const Card: React.FC<DataInterface> = ({
         </div>
 
         {/* Moveset */}
-        <Moveset
-          moves={moves}
-          types={types}
-          stats={stats}
-          name={name}
-          height={height}
-          weight={weight}
-          sprites={sprites}
-        />
+        <Moveset moves={moves} />
 
         {/* Weakness */}
         <div className='text-xs mx-6 flex justify-center'>
           <div className='absolute bottom-2'>
-            Weakness: {pokemonType?.weakness}
+            Weakness: {Object.values(pokemonType)[0].weakness}
           </div>
         </div>
       </div>

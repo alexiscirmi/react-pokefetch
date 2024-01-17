@@ -5,21 +5,34 @@ import { Card } from './card/Card'
 
 export const CardContainer: React.FC = () => {
   const { num } = useParams()
-  const [data, setData] = useState<DataInterface | null>(null)
+  const [data, setData] = useState<DataInterface | undefined>(undefined)
+  const [pokemonType, setPokemonType] = useState<DataInterface | undefined>(
+    undefined
+  )
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (Number(num) < 152 && Number(num) > 0) {
       const fetchInfo = async (): Promise<void> => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${num}`)
-        const data: DataInterface | null = await res.json()
+        const data: DataInterface = await res.json()
         setData(data)
+        const res1 = await fetch('types.json')
+        const typesData = await res1.json()
+        const typesArray = await typesData.types
+        const typeCard = data.types[0].type.name
+        const typeData: DataInterface = await typesArray.find(
+          (typeObject: { key: string }) =>
+            Object.keys(typeObject)[0] === typeCard
+        )
+        setPokemonType(typeData)
         setLoading(false)
       }
 
       void fetchInfo()
     } else {
-      setData(null)
+      setData(undefined)
+      setPokemonType(undefined)
       setLoading(false)
     }
   }, [num])
@@ -41,7 +54,7 @@ export const CardContainer: React.FC = () => {
           />
           <path d='M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466' />
         </svg>
-      ) : data !== null ? (
+      ) : data !== undefined && pokemonType !== undefined ? (
         <Card
           types={data.types}
           stats={data.stats}
@@ -50,6 +63,9 @@ export const CardContainer: React.FC = () => {
           weight={data.weight}
           sprites={data.sprites}
           moves={data.moves}
+          pokemonType={pokemonType}
+          color={pokemonType.color}
+          weakness={pokemonType.weakness}
         />
       ) : (
         <div>

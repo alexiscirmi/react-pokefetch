@@ -4,7 +4,7 @@ import { type ListInterface } from '../../../types'
 import styles from './Selector.module.css'
 
 export const Selector: React.FC<ListInterface> = ({ name, url, num }) => {
-  const [sprite, setSprite] = useState<string | null>(null)
+  const [sprite, setSprite] = useState<string | undefined>(undefined)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const Selector: React.FC<ListInterface> = ({ name, url, num }) => {
           {loading ? (
             <div className={`animate-pulse ${styles.placeholder}`} />
           ) : (
-            sprite !== null && <img src={sprite} alt={name} />
+            sprite !== undefined && <img src={sprite} alt={name} />
           )}
         </div>
         <p className='text-sm'>#{num}</p>

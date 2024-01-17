@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { type DataInterface } from '../../../../../../types'
+import { type SpriteInt } from '../../../../../../types'
 import styles from './Sprite.module.css'
 
-export const Sprite: React.FC<DataInterface> = ({ sprites, name }) => {
+export const Sprite: React.FC<SpriteInt> = ({ sprites, name }) => {
   const [isSpriteLoaded, setIsSpriteLoaded] = useState(false)
 
   const handleSpriteLoad = (): void => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { type DataInterface } from '../../../../../../types'
+import { type MoveInt } from '../../../../../../types'
 
-export const Moveset: React.FC<DataInterface> = ({ moves }) => {
+export const Moveset: React.FC<MoveInt> = ({ moves }) => {
   const [movesetPower, setMovesetPower] = useState([0, 0])
   const [movesetEffect, setMovesetEffect] = useState(['', ''])
 
