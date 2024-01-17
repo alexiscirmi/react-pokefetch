@@ -41,7 +41,6 @@ export interface DataInterface {
       }
     }
   ]
-  pokemonType: object
   color: string
   weakness: string
 }

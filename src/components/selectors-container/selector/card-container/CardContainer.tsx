@@ -63,9 +63,8 @@ export const CardContainer: React.FC = () => {
           weight={data.weight}
           sprites={data.sprites}
           moves={data.moves}
-          pokemonType={pokemonType}
-          color={pokemonType.color}
-          weakness={pokemonType.weakness}
+          color={Object.values(pokemonType)[0].color}
+          weakness={Object.values(pokemonType)[0].weakness}
         />
       ) : (
         <div>

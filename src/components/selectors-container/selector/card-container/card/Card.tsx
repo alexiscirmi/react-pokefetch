@@ -11,14 +11,15 @@ export const Card: React.FC<DataInterface> = ({
   weight,
   sprites,
   moves,
-  pokemonType
+  color,
+  weakness
 }) => {
-  if (pokemonType !== undefined) {
+  if (color !== undefined && weakness !== undefined) {
     return (
       <div
         className={`border-yellow-300 border-solid relative rounded-3xl my-1 ${styles.card}`}
         style={{
-          backgroundColor: Object.values(pokemonType)[0].color
+          backgroundColor: color
         }}
       >
         {/* Header */}
@@ -45,9 +46,7 @@ export const Card: React.FC<DataInterface> = ({
 
         {/* Weakness */}
         <div className='text-xs mx-6 flex justify-center'>
-          <div className='absolute bottom-2'>
-            Weakness: {Object.values(pokemonType)[0].weakness}
-          </div>
+          <div className='absolute bottom-2'>Weakness: {weakness}</div>
         </div>
       </div>
     )
