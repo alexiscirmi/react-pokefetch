@@ -2,19 +2,19 @@
   "types": [
     {
       "grass": {
-        "color": "#58D68D",
+        "color": "#49e38a",
         "weakness": "Poison"
       }
     },
     {
       "poison": {
-        "color": "#58D68D",
+        "color": "#49e38a",
         "weakness": "Ground"
       }
     },
     {
       "bug": {
-        "color": "#58D68D",
+        "color": "#49e38a",
         "weakness": "Rock"
       }
     },
