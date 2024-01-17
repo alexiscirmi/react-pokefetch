@@ -1,33 +1,10 @@
-import { useEffect, useState } from 'react'
-import { type MoveInt } from '../../../../../../types'
+import { type MovesInt } from '../../../../../../types'
 
-export const Moveset: React.FC<MoveInt> = ({ moves }) => {
-  const [movesetPower, setMovesetPower] = useState([0, 0])
-  const [movesetEffect, setMovesetEffect] = useState(['', ''])
-
-  useEffect(() => {
-    const fetchMoveset = async (): Promise<void> => {
-      const res1 = await fetch(moves[0].move.url)
-      const move1 = await res1.json()
-      const power1 = move1.power
-      const effect1 = move1.effect_entries[0].effect.replace(
-        '$effect_chance',
-        move1.effect_chance
-      )
-      const res2 = await fetch(moves[1].move.url)
-      const move2 = await res2.json()
-      const power2 = move2.power
-      const effect2 = move2.effect_entries[0].effect.replace(
-        '$effect_chance',
-        move2.effect_chance
-      )
-      setMovesetPower([power1, power2])
-      setMovesetEffect([effect1, effect2])
-    }
-
-    void fetchMoveset()
-  }, [])
-
+export const Moveset: React.FC<MovesInt> = ({
+  moves,
+  movesetPower,
+  movesetEffect
+}) => {
   return (
     <div className='flex flex-col h-15 mx-6 my-3'>
       <div className='flex justify-between pb-1 border-b-2 border-black'>
@@ -61,7 +38,7 @@ export const Moveset: React.FC<MoveInt> = ({ moves }) => {
             }
           </p> */}
         </div>
-        <span className='text-2xl'>{movesetPower[0]}</span>
+        <span className='text-2xl'>{movesetPower[0] ?? 0}</span>
       </div>
       <div className='flex justify-between pt-1'>
         <div>

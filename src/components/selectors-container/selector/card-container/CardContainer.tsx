@@ -1,38 +1,62 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { type DataInterface } from '../../../../types'
+import { type DataInt } from '../../../../types'
 import { Card } from './card/Card'
 
 export const CardContainer: React.FC = () => {
   const { num } = useParams()
-  const [data, setData] = useState<DataInterface | undefined>(undefined)
-  const [pokemonType, setPokemonType] = useState<DataInterface | undefined>(
-    undefined
-  )
+  const [data, setData] = useState<DataInt | undefined>(undefined)
+  const [pokemonType, setPokemonType] = useState<DataInt | undefined>(undefined)
+  const [movesetPower, setMovesetPower] = useState<DataInt['movesetPower']>([
+    0, 0
+  ])
+  const [movesetEffect, setMovesetEffect] = useState<DataInt['movesetEffect']>([
+    '',
+    ''
+  ])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (Number(num) < 152 && Number(num) > 0) {
       const fetchInfo = async (): Promise<void> => {
+        // Pokémon general data fetch
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${num}`)
-        const data: DataInterface = await res.json()
+        const data: DataInt = await res.json()
         setData(data)
+
+        // Pokémon type fetch
         const res1 = await fetch('types.json')
         const typesData = await res1.json()
         const typesArray = await typesData.types
         const typeCard = data.types[0].type.name
-        const typeData: DataInterface = await typesArray.find(
+        const typeData: DataInt = await typesArray.find(
           (typeObject: { key: string }) =>
             Object.keys(typeObject)[0] === typeCard
         )
         setPokemonType(typeData)
+
+        // Moveset fetch
+        const res2 = await fetch(data.moves[0].move.url)
+        const move1 = await res2.json()
+        const power1 = await move1.power
+        const effect1 = await move1.effect_entries[0].effect.replace(
+          '$effect_chance',
+          move1.effect_chance
+        )
+        const res3 = await fetch(data.moves[1].move.url)
+        const move2 = await res3.json()
+        const power2 = await move2.power
+        const effect2 = await move2.effect_entries[0].effect.replace(
+          '$effect_chance',
+          move2.effect_chance
+        )
+        setMovesetPower([power1, power2])
+        setMovesetEffect([effect1, effect2])
         setLoading(false)
       }
 
       void fetchInfo()
     } else {
-      setData(undefined)
-      setPokemonType(undefined)
       setLoading(false)
     }
   }, [num])
@@ -62,9 +86,11 @@ export const CardContainer: React.FC = () => {
           height={data.height}
           weight={data.weight}
           sprites={data.sprites}
-          moves={data.moves}
           color={Object.values(pokemonType)[0].color}
           weakness={Object.values(pokemonType)[0].weakness}
+          moves={data.moves}
+          movesetPower={movesetPower}
+          movesetEffect={movesetEffect}
         />
       ) : (
         <div>

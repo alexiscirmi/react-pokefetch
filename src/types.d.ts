@@ -4,7 +4,7 @@ export interface ListInterface {
   url: string
 }
 
-export interface DataInterface {
+export interface DataInt {
   types: [
     {
       type: {
@@ -27,6 +27,8 @@ export interface DataInterface {
       }
     }
   }
+  color: string
+  weakness: string
   moves: [
     {
       move: {
@@ -41,8 +43,8 @@ export interface DataInterface {
       }
     }
   ]
-  color: string
-  weakness: string
+  movesetPower: [number, number]
+  movesetEffect: [string, string]
 }
 
 export interface SpriteInt {
@@ -56,7 +58,7 @@ export interface SpriteInt {
   name: string
 }
 
-export interface MoveInt {
+export interface MovesInt {
   moves: [
     {
       move: {
@@ -71,4 +73,6 @@ export interface MoveInt {
       }
     }
   ]
+  movesetPower: [number, number]
+  movesetEffect: [string, string]
 }

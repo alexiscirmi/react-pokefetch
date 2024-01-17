@@ -1,18 +1,20 @@
 import { Sprite } from './sprite/Sprite'
 import { Moveset } from './moveset/Moveset'
-import { type DataInterface } from '../../../../../types'
+import { type DataInt } from '../../../../../types'
 import styles from './Card.module.css'
 
-export const Card: React.FC<DataInterface> = ({
+export const Card: React.FC<DataInt> = ({
   types,
   stats,
   name,
   height,
   weight,
   sprites,
-  moves,
   color,
-  weakness
+  weakness,
+  moves,
+  movesetPower,
+  movesetEffect
 }) => {
   if (color !== undefined && weakness !== undefined) {
     return (
@@ -42,7 +44,11 @@ export const Card: React.FC<DataInterface> = ({
         </div>
 
         {/* Moveset */}
-        <Moveset moves={moves} />
+        <Moveset
+          moves={moves}
+          movesetPower={movesetPower}
+          movesetEffect={movesetEffect}
+        />
 
         {/* Weakness */}
         <div className='text-xs mx-6 flex justify-center'>
